@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Studio | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Decorative Elements -->
+    <div class="floating-elements">
+        <div class="float-item">🌸</div>
+        <div class="float-item">✨</div>
+        <div class="float-item">🎨</div>
+        <div class="float-item">🌙</div>
+        <div class="float-item">⭐</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">Multimedia Studio</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="3d-rendering.html" class="nav-link">3D Rendering</a></li>
+                <li><a href="rotoscope.html" class="nav-link">Rotoscope</a></li>
+                <li><a href="about.html" class="nav-link">About Me</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✨ Portfolio</div>
+            <h1 class="hero-title">Multimedia Studio</h1>
+            <p class="hero-subtitle">A showcase of 3D rendering and rotoscope work — featuring a Solar System render in Blender and a 12-week rotoscope animation series.</p>
+            
+            <div class="hero-buttons">
+                <a href="3d-rendering.html" class="btn btn-primary">
+                    <span>🪐</span> View 3D Rendering
+                </a>
+                <a href="rotoscope.html" class="btn btn-secondary">
+                    <span>🎬</span> View Rotoscope
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="decoration-circle"></div>
+            <div class="decoration-star">⭐</div>
+            <div class="decoration-heart">💕</div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-badge">🌸 Featured</span>
+            <h2 class="section-title">What's inside this portfolio</h2>
+            <p class="section-subtitle">Two multimedia projects completed as part of the BSIT curriculum at TUP-Taguig.</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Solar System Card -->
+            <div class="card">
+                <div class="card-image">
+                    <div class="card-icon-large">🪐</div>
+                    <div class="card-badges">
+                        <span class="card-badge">Blender</span>
+                        <span class="card-badge">3D</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Solar System in Blender</h3>
+                    <p class="card-desc">A fully modelled Solar System rendered in Blender using Cycles and an RTX 3050 Ti. Features planetary textures, Sun emission lighting, Saturn's rings, star field, and a cinematic camera orbit.</p>
+                    <a href="3d-rendering.html" class="card-link">
+                        Explore the full project <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rotoscope Card -->
+            <div class="card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ffe4ec 0%, #ffe0f0 100%);">
+                    <div class="card-icon-large">🎬</div>
+                    <div class="card-badges">
+                        <span class="card-badge">Animation</span>
+                        <span class="card-badge">12 Weeks</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Rotoscope Animation Series</h3>
+                    <p class="card-desc">A 12-week rotoscope animation series tracing real footage frame-by-frame. Each week's output is embedded as a YouTube video with a reference video and production credits.</p>
+                    <a href="rotoscope.html" class="card-link">
+                        Explore the full project <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="section section-pink">
+        <div class="section-header">
+            <span class="section-badge">🎯 Quick Actions</span>
+            <h2 class="section-title">Jump to a section</h2>
+        </div>
+
+        <div class="quick-links">
+            <a href="3d-rendering.html" class="quick-link">
+                <div class="quick-link-icon">📋</div>
+                <div class="quick-link-content">
+                    <h4>3D Rendering</h4>
+                    <p>Production Breakdown • 10-step Blender workflow</p>
+                </div>
+            </a>
+            
+            <a href="3d-rendering.html" class="quick-link">
+                <div class="quick-link-icon">🖥️</div>
+                <div class="quick-link-content">
+                    <h4>3D Rendering</h4>
+                    <p>Render Specs • GPU, samples, export settings</p>
+                </div>
+            </a>
+            
+            <a href="3d-rendering.html" class="quick-link">
+                <div class="quick-link-icon">🪐</div>
+                <div class="quick-link-content">
+                    <h4>Interactive Tool</h4>
+                    <p>Planet Age Calculator • How old are you on each planet?</p>
+                </div>
+            </a>
+            
+            <a href="rotoscope.html" class="quick-link">
+                <div class="quick-link-icon">🎬</div>
+                <div class="quick-link-content">
+                    <h4>Rotoscope</h4>
+                    <p>Week 1 – 12 Gallery • All 12 weekly video embeds</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🎀 Multimedia Studio</span>
+                <p>Created with 💕 for Multimedia and Authoring course</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="3d-rendering.html">3D Rendering</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Nathaniell Jeffrey F. Hernandez • BSIT TUP-Taguig</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
