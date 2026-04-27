@@ -48,8 +48,8 @@
                 <a href="#production" class="btn btn-primary">
                     <span>📋</span> Production Breakdown
                 </a>
-                <a href="#encyclopedia" class="btn btn-secondary">
-                    <span>🌌</span> Planet Encyclopedia
+                <a href="#calculator" class="btn btn-secondary">
+                    <span>🪐</span> Planet Age Calculator
                 </a>
             </div>
         </div>
@@ -61,6 +61,7 @@
             <a href="#production" class="quick-nav-link">📋 Production Breakdown</a>
             <a href="#tech" class="quick-nav-link">🖥️ Tech Info</a>
             <a href="#notes" class="quick-nav-link">📝 Project Notes</a>
+            <a href="#calculator" class="quick-nav-link">🪐 Age Calculator</a>
             <a href="#encyclopedia" class="quick-nav-link">🌌 Planet Encyclopedia</a>
         </div>
     </div>
@@ -224,115 +225,130 @@
         </div>
     </section>
 
-    <!-- Planet Encyclopedia with Age Calculator -->
-    <section id="encyclopedia" class="section section-purple">
+    <!-- Planet Age Calculator -->
+    <section id="calculator" class="section section-purple">
         <div class="section-header">
-            <span class="section-badge">🌌 Interactive Encyclopedia</span>
-            <h2 class="section-title">Planet Encyclopedia & Age Calculator</h2>
-            <p class="section-subtitle">Explore each planet and calculate your age on every world in the Solar System. Upload your own video to share!</p>
+            <span class="section-badge">🪐 Interactive</span>
+            <h2 class="section-title">Planet Age Calculator</h2>
+            <p class="section-subtitle">Enter your age in Earth years and see how old you would be on every planet in the Solar System.</p>
         </div>
 
-        <!-- Video Upload Section -->
-        <div class="video-upload-section">
-            <div class="upload-card">
-                <div class="upload-icon">🎥</div>
-                <h4>Upload Your Solar System Video</h4>
-                <p>Share your own 3D rendering or animation of the Solar System</p>
-                <input type="file" id="video-upload" accept="video/*" style="display: none;">
-                <button onclick="document.getElementById('video-upload').click()" class="btn btn-primary">Choose Video File</button>
-                <div id="upload-preview" class="upload-preview"></div>
+        <div class="calculator-card">
+            <div class="calc-input-group">
+                <label for="earth-age">Your Age on Earth 🌍</label>
+                <input type="number" id="earth-age" placeholder="Enter your age" min="0" max="120">
+                <button onclick="calculatePlanetAges()" class="btn btn-primary">Calculate ✨</button>
+            </div>
+            
+            <div id="age-results" class="age-results">
+                <div class="planet-age-item">
+                    <span class="planet-icon">☿️</span>
+                    <div class="planet-info">
+                        <h4>Mercury</h4>
+                        <p class="planet-years" id="mercury-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">♀️</span>
+                    <div class="planet-info">
+                        <h4>Venus</h4>
+                        <p class="planet-years" id="venus-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">🌍</span>
+                    <div class="planet-info">
+                        <h4>Earth</h4>
+                        <p class="planet-years" id="earth-result">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">♂️</span>
+                    <div class="planet-info">
+                        <h4>Mars</h4>
+                        <p class="planet-years" id="mars-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">🪐</span>
+                    <div class="planet-info">
+                        <h4>Jupiter</h4>
+                        <p class="planet-years" id="jupiter-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">🪐</span>
+                    <div class="planet-info">
+                        <h4>Saturn</h4>
+                        <p class="planet-years" id="saturn-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">🧊</span>
+                    <div class="planet-info">
+                        <h4>Uranus</h4>
+                        <p class="planet-years" id="uranus-age">-</p>
+                    </div>
+                </div>
+                <div class="planet-age-item">
+                    <span class="planet-icon">🌊</span>
+                    <div class="planet-info">
+                        <h4>Neptune</h4>
+                        <p class="planet-years" id="neptune-age">-</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Planet Cards with Age Calculator -->
-        <div class="planets-encyclopedia-grid">
-            <div class="planet-encyclopedia-card">
+    <!-- Planet Encyclopedia -->
+    <section id="encyclopedia" class="section">
+        <div class="section-header">
+            <span class="section-badge">🌌 Encyclopedia</span>
+            <h2 class="section-title">About Each Planet</h2>
+            <p class="section-subtitle">A quick-reference guide to every world in our Solar System and what makes each one unique.</p>
+        </div>
+
+        <div class="planets-grid">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #8B7355, #5C4033);">☿️</div>
                 <h4>Mercury</h4>
                 <p>Smallest planet, closest to the Sun. Extreme temperature swings from 427°C day to -173°C night.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="mercury-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('mercury', 0.24)" class="btn-small">Calculate</button>
-                    <p class="result" id="mercury-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #E6B87D, #D4A373);">♀️</div>
                 <h4>Venus</h4>
                 <p>Hottest planet due to thick CO₂ atmosphere. Retrograde rotation means sun rises in the west.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="venus-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('venus', 0.62)" class="btn-small">Calculate</button>
-                    <p class="result" id="venus-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #4A90D9, #2E5C8A);">🌍</div>
                 <h4>Earth</h4>
                 <p>Only known planet with life. 71% water surface, protective magnetic field and atmosphere.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="earth-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('earth', 1)" class="btn-small">Calculate</button>
-                    <p class="result" id="earth-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #C1440E, #8B2500);">♂️</div>
                 <h4>Mars</h4>
                 <p>The Red Planet. Thin atmosphere, polar ice caps, largest volcano (Olympus Mons) in the solar system.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="mars-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('mars', 1.88)" class="btn-small">Calculate</button>
-                    <p class="result" id="mars-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #D4A574, #B8956A, #8B7355);">🪐</div>
                 <h4>Jupiter</h4>
                 <p>Largest planet. Gas giant with Great Red Spot storm (larger than Earth). 95 known moons.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="jupiter-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('jupiter', 11.86)" class="btn-small">Calculate</button>
-                    <p class="result" id="jupiter-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #F4D03F, #D4AC0D);">🪐</div>
                 <h4>Saturn</h4>
                 <p>Famous ring system made of ice and rock particles. Less dense than water - would float!</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="saturn-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('saturn', 29.46)" class="btn-small">Calculate</button>
-                    <p class="result" id="saturn-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
-                <div class="planet-visual" style="background: radial-gradient(circle, #AED6F1, #85C1E9);">�</div>
+            <div class="planet-card">
+                <div class="planet-visual" style="background: radial-gradient(circle, #AED6F1, #85C1E9);">🧊</div>
                 <h4>Uranus</h4>
                 <p>Ice giant tilted 98° on its side. Rotates like a rolling ball. Faint ring system discovered in 1977.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="uranus-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('uranus', 84.01)" class="btn-small">Calculate</button>
-                    <p class="result" id="uranus-result">-</p>
-                </div>
             </div>
-            <div class="planet-encyclopedia-card">
+            <div class="planet-card">
                 <div class="planet-visual" style="background: radial-gradient(circle, #5B7CFF, #3B5CFF);">🌊</div>
                 <h4>Neptune</h4>
                 <p>Windiest planet with speeds up to 2,100 km/h. Deep blue color from methane in atmosphere.</p>
-                <div class="planet-age-calc">
-                    <label>Your Age:</label>
-                    <input type="number" id="neptune-input" placeholder="Earth years" min="0" max="120">
-                    <button onclick="calculateAge('neptune', 164.8)" class="btn-small">Calculate</button>
-                    <p class="result" id="neptune-result">-</p>
-                </div>
             </div>
         </div>
     </section>
