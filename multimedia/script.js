@@ -56,7 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Planet Age Calculator
+// Planet Age Calculator (Individual)
+function calculateAge(planet, orbitalPeriod) {
+    const inputId = planet + '-input';
+    const resultId = planet + '-result';
+    const earthAge = parseFloat(document.getElementById(inputId).value);
+    
+    if (isNaN(earthAge) || earthAge < 0) {
+        alert('Please enter a valid age! 🌸');
+        return;
+    }
+
+    const planetAge = (earthAge / orbitalPeriod).toFixed(1);
+    document.getElementById(resultId).textContent = planetAge + ' years';
+}
+
+// Planet Age Calculator (Original - for backward compatibility)
 function calculatePlanetAges() {
     const earthAge = parseFloat(document.getElementById('earth-age').value);
     
@@ -110,7 +125,78 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Video upload functionality
+    const videoUpload = document.getElementById('video-upload');
+    const uploadPreview = document.getElementById('upload-preview');
+    
+    if (videoUpload && uploadPreview) {
+        videoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const videoURL = URL.createObjectURL(file);
+                uploadPreview.innerHTML = `
+                    <video controls style="max-width: 100%; border-radius: 15px;">
+                        <source src="${videoURL}" type="${file.type}">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            }
+        });
+    }
 });
+
+// Video Carousel Functionality
+let currentWeek = 1;
+const totalWeeks = 12;
+
+function showWeek(weekNum) {
+    // Hide all slides
+    const slides = document.querySelectorAll('.carousel-slide');
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Show selected slide
+    const activeSlide = document.querySelector(`.carousel-slide[data-week="${weekNum}"]`);
+    if (activeSlide) {
+        activeSlide.classList.add('active');
+    }
+    
+    // Update indicators
+    const indicators = document.querySelectorAll('.indicator');
+    indicators.forEach((indicator, index) => {
+        if (index + 1 === weekNum) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+    
+    currentWeek = weekNum;
+}
+
+function nextWeek() {
+    const next = currentWeek + 1;
+    if (next > totalWeeks) {
+        showWeek(1);
+    } else {
+        showWeek(next);
+    }
+}
+
+function prevWeek() {
+    const prev = currentWeek - 1;
+    if (prev < 1) {
+        showWeek(totalWeeks);
+    } else {
+        showWeek(prev);
+    }
+}
+
+function goToWeek(weekNum) {
+    showWeek(weekNum);
+}
 
 // Scroll reveal animation
 function revealOnScroll() {
